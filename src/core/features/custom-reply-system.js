@@ -31,7 +31,13 @@ const manageCustomReply = async (interaction) => {
     } break;
 
     case "list": {
-      const customReplies = await customReplyService.find();
+      const guildId = interaction.guildId;
+      const customReplies = await customReplyService.find({ guildId });
+
+      if (!customReplies.length) return interaction.reply({
+        content: "No custom replies found T_T",
+      });
+
       const messageEmbed = new MessageEmbed();
 
       messageEmbed.setTitle("Custom Replies List");

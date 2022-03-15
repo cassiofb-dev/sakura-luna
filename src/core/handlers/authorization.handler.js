@@ -27,7 +27,7 @@ const hasRole = (interaction, roleName) => {
  const hasAdminRole = async (interaction) => {
    const isAdmin = hasRole(interaction, CONFIG.DISCORD.ROLES.ADMIN);
 
-   await interaction.reply({
+   if (!isAdmin) await interaction.reply({
     content: "Only my master and friends can tell what I can say! Hmph!",
     ephemeral: true,
    });
