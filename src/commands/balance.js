@@ -4,7 +4,7 @@ const currencySystem = require("../core/features/currency-system.js");
 
 const command = new Command();
 command.setName("balance");
-command.setDescription("View your currency balance");
+command.setDescription("Very currency UwU");
 
 /**
  * Balance implementation

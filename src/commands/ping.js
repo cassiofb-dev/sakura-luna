@@ -3,7 +3,7 @@ const Command = require("../core/classes/command.js");
 
 const command = new Command();
 command.setName("ping");
-command.setDescription("Replies with ping value");
+command.setDescription("Ping UwU");
 
 /**
  * Ping implementation

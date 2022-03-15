@@ -1,18 +1,12 @@
 const { CommandInteraction } = require("discord.js");
+const CONFIG = require("../../config");
 
 /**
  * Handle permissions
  * @param {CommandInteraction} interaction
  */
-const hasPermission = async (interaction, permission) => {
-  if (interaction.member.permissions.has(permission)) return true;
-
-  await interaction.reply({
-    content: "You do not have permission to run this command!",
-    ephemeral: true,
-  });
-
-  return false;
+const hasPermission = (interaction, permission) => {
+  return interaction.member.permissions.has(permission);
 }
 
 /**
@@ -20,19 +14,27 @@ const hasPermission = async (interaction, permission) => {
  * @param {CommandInteraction} interaction
  * @param {String} roleName
  */
-const hasRole = async (interaction, roleName) => {
+const hasRole = (interaction, roleName) => {
   const roleNames = interaction.member.roles.cache.map(role => role.name);
-
-  if (roleNames.includes(roleName)) return true;
-
-  await interaction.reply({
-    content: `Only ${roleName} can use this command!`,
-    ephemeral: true,
-  });
-
-  return false;
+  return roleNames.includes(roleName);
 }
 
-const authorizationHandler = { hasPermission, hasRole };
+/**
+ * Handle roles
+ * @param {CommandInteraction} interaction
+ * @param {String} roleName
+ */
+ const hasAdminRole = async (interaction) => {
+   const isAdmin = hasRole(interaction, CONFIG.DISCORD.ROLES.ADMIN);
+
+   await interaction.reply({
+    content: "Only my master and friends can tell what I can say! Hmph!",
+    ephemeral: true,
+   });
+
+   return isAdmin;
+}
+
+const authorizationHandler = { hasPermission, hasRole, hasAdminRole };
 
 module.exports = authorizationHandler;

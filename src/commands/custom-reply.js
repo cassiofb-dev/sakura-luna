@@ -5,7 +5,7 @@ const authorizationHandler = require("../core/handlers/authorization.handler.js"
 
 const command = new Command();
 command.setName("custom-reply");
-command.setDescription("Manage custom replies");
+command.setDescription("Manage custom replies UwU");
 
 command.addSubcommand(subCommand => {
   subCommand.setName("save");
@@ -53,7 +53,7 @@ command.addSubcommand(subCommand => {
  * @param {CommandInteraction} interaction
  */
 const execute = async (interaction) => {
-  const allowExecution = await authorizationHandler.hasRole(interaction, "Custom Reply Manager");
+  const allowExecution = await authorizationHandler.hasAdminRole(interaction);
 
   if (!allowExecution) return;
 

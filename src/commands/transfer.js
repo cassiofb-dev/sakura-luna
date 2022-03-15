@@ -4,7 +4,7 @@ const currencySystem = require("../core/features/currency-system.js");
 
 const command = new Command();
 command.setName("transfer");
-command.setDescription("Transfer currency from your balance to another");
+command.setDescription("Very currency UwU");
 
 command.addNumberOption(option => {
   option.setName("amount");
