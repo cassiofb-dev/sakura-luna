@@ -10,7 +10,7 @@ command.setDescription("Ping UwU");
  * @param {CommandInteraction} interaction
  */
 const execute = async (interaction) => {
-  const latency = interaction.createdAt.getTime() - Date.now();
+  const latency = Date.now() - interaction.createdAt.getTime();
   await interaction.reply(`Ping: ${latency}ms.`);
 };
 
