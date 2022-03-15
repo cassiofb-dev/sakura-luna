@@ -7,6 +7,7 @@ const CONFIG = {
     GUILD_ID: process.env.DISCORD_GUILD_ID,
     BOT_TOKEN: process.env.DISCORD_BOT_TOKEN,
     BOT_NAME: "Sakura Luna",
+    BOT_ACTIVITY: "Star Network",
     ROLES: {
       ADMIN: "Sakura Owner",
     },

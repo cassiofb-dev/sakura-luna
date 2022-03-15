@@ -51,8 +51,10 @@ module.exports = class DiscordBot extends Client {
       console.log("Commands published, starting database connection...");
       startDataBaseConnection().then(() => {
         console.log("Started database connection, starting bot...");
-        this.login(CONFIG.DISCORD.BOT_TOKEN).then(() => {
+        this.login(CONFIG.DISCORD.BOT_TOKEN).then(async () => {
           console.timeEnd("Bot started in");
+          await this.user.setUsername(CONFIG.DISCORD.BOT_NAME);
+          await this.user.setActivity(CONFIG.DISCORD.BOT_ACTIVITY, { type: "WATCHING" });
         });
       });
     });

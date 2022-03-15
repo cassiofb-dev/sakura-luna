@@ -8,7 +8,7 @@ const customReplyModel = require("./custom-reply.model");
  */
 const save = async (customReply) => {
   const guildId = customReply.guildId;
-  const trigger = customReply.trigger
+  const trigger = customReply.trigger;
   const foundCustomReply = await customReplyModel.findOne({ guildId, trigger });
 
   if (foundCustomReply) {
