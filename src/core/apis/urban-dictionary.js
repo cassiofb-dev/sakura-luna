@@ -4,9 +4,7 @@ const { URBAN_DICTIONARY } = require("../../config");
 
 /**
  * Return a list of definitions
- * @param {String} searchString 
- * @returns 
- */
+ * @param {String} searchString * @returns */
 const define = async (searchString) => {
   const searchQueryString = new URLSearchParams({ term: searchString }).toString();
   const searchURL = URBAN_DICTIONARY.API_URL + URBAN_DICTIONARY.ENDPOINTS.DEFINE + searchQueryString;

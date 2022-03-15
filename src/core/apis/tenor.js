@@ -3,9 +3,7 @@ const { TENOR } = require("../../config");
 
 /**
  * Search a gif URL
- * @param {String} searchString 
- * @returns 
- */
+ * @param {String} searchString * @returns */
 const searchGif = async (searchString) => {
   const searchGifQueryString = new URLSearchParams({
     q: searchString,

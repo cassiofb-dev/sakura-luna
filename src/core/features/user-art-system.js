@@ -3,8 +3,7 @@ const userArtService = require("../database/user-art/user-art.service");
 
 /**
  * Custom Art Management
- * @param {CommandInteraction} interaction 
- */
+ * @param {CommandInteraction} interaction */
 const manageUserArt = async (interaction) => {
 
   switch (interaction.options.getSubcommand()) {
@@ -21,7 +20,6 @@ const manageUserArt = async (interaction) => {
 
       await interaction.reply("Art registered");
     } break;
-  
     default:
       break;
   }
