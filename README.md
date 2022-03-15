@@ -15,7 +15,7 @@
 
 ## About
 
-Sakura Luna is discord bot for promiving interactions between people and (in progress) promoving art.
+Sakura Luna is discord bot for promiving interactions between people and promoving art.
 
 ## Features
 
@@ -32,6 +32,8 @@ Sakura Luna is discord bot for promiving interactions between people and (in pro
     * ``kiss``
     * ``gif``
     * ``define``
+    * ``art``
+    * ``user-art``
 * Events Handler
   * All events in ``src/events`` folder are handled by default
   * Bult-in Events:
@@ -52,6 +54,7 @@ Sakura Luna is discord bot for promiving interactions between people and (in pro
 * Third party apis
   * Urban dictionary for definitions
   * Tenor for searching gifs
+* Cross server Arts!
 
 ## Using
 
@@ -100,6 +103,7 @@ npm start
 ```txt
 📦src
  ┣ 📂commands
+ ┃ ┣ 📜art.js
  ┃ ┣ 📜balance.js
  ┃ ┣ 📜custom-reply.js
  ┃ ┣ 📜define.js
@@ -108,7 +112,8 @@ npm start
  ┃ ┣ 📜kiss.js
  ┃ ┣ 📜pat.js
  ┃ ┣ 📜ping.js
- ┃ ┗ 📜transfer.js
+ ┃ ┣ 📜transfer.js
+ ┃ ┗ 📜user-art.js
  ┣ 📂core
  ┃ ┣ 📂apis
  ┃ ┃ ┣ 📜tenor.js
@@ -126,12 +131,17 @@ npm start
  ┃ ┃ ┃ ┣ 📜guild-user.js
  ┃ ┃ ┃ ┣ 📜guild-user.model.js
  ┃ ┃ ┃ ┗ 📜guild-user.service.js
+ ┃ ┃ ┣ 📂user-art
+ ┃ ┃ ┃ ┣ 📜user-art.js
+ ┃ ┃ ┃ ┣ 📜user-art.model.js
+ ┃ ┃ ┃ ┗ 📜user-art.service.js
  ┃ ┃ ┗ 📜database.js
  ┃ ┣ 📂features
  ┃ ┃ ┣ 📜currency-system.js
  ┃ ┃ ┣ 📜custom-reply-system.js
  ┃ ┃ ┣ 📜level-up-system.js
- ┃ ┃ ┗ 📜media-system.js
+ ┃ ┃ ┣ 📜media-system.js
+ ┃ ┃ ┗ 📜user-art-system.js
  ┃ ┗ 📂handlers
  ┃ ┃ ┣ 📜authorization.handler.js
  ┃ ┃ ┣ 📜command.handler.js
