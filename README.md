@@ -1,8 +1,8 @@
 <h1 align="center">
-  Discord Bot Template
+  Sakura Luna
 </h1>
 
-<h4 align="center">Discord Bot Template using Slash Commands</h4>
+<h4 align="center">Sakura Luna Discord Bot</h4>
 
 <p align="center">
   <a href="#about">About</a> •
@@ -15,13 +15,9 @@
 
 ## About
 
-This is a template for a simple discord bot with some built-in features that uses the new Discord.js version with slash commands. When developed for custom needs and ready to go, please read global commands on [Discord.js guide](https://discordjs.guide/interactions/slash-commands.html#global-commands).
+Sakura Luna is discord bot for promiving interactions between people and (in progress) promoving art.
 
 ## Features
-
-Note that for a user to be saved on the database he must interact with the server after the bot entered the server. It can be changed easily but It is done this way to prevent saving inactive members for save data as the database is in free tier.
-
-Also Note that the code is commented, as the function names and variables are pretty much self explanatory the comments are only to type variables as VSCode type commented js with decorators (so there was no need for typescript).
 
 * Command Handler
   * All commands in ``src/commands`` folder are handled by default
@@ -31,6 +27,11 @@ Also Note that the code is commented, as the function names and variables are pr
     * ``custom-reply``
     * ``balance``
     * ``transfer``
+    * ``pat``
+    * ``hug``
+    * ``kiss``
+    * ``gif``
+    * ``define``
 * Events Handler
   * All events in ``src/events`` folder are handled by default
   * Bult-in Events:
@@ -48,6 +49,9 @@ Also Note that the code is commented, as the function names and variables are pr
 * Currency System
   * On first saved in database users will be granted 10 currencies
   * Users can transfer currency to another user
+* Third party apis
+  * Urban dictionary for definitions
+  * Tenor for searching gifs
 
 ## Using
 
@@ -59,9 +63,9 @@ To run this project you will need:
 From your terminal run the commands:
 
 ```bash
-git clone https://github.com/cassiofb-dev/discord-bot-template
+git clone https://github.com/cassiofb-dev/sakura-luna
 
-cd discord-bot-template
+cd sakura-luna
 
 npm i
 ```
@@ -79,6 +83,7 @@ npm start
 * src - project source code folder
   * commands - all commands goes here
   * core - core things to run commands and events the heart of the project
+    * apis - third party apis for searching medias like images, gifs and text or more
     * classes - classes declarations
     * database - all database implementation goes here
       * custom-reply - custom reply data modeling and services
@@ -97,9 +102,17 @@ npm start
  ┣ 📂commands
  ┃ ┣ 📜balance.js
  ┃ ┣ 📜custom-reply.js
+ ┃ ┣ 📜define.js
+ ┃ ┣ 📜gif.js
+ ┃ ┣ 📜hug.js
+ ┃ ┣ 📜kiss.js
+ ┃ ┣ 📜pat.js
  ┃ ┣ 📜ping.js
  ┃ ┗ 📜transfer.js
  ┣ 📂core
+ ┃ ┣ 📂apis
+ ┃ ┃ ┣ 📜tenor.js
+ ┃ ┃ ┗ 📜urban-dictionary.js
  ┃ ┣ 📂classes
  ┃ ┃ ┣ 📜command.js
  ┃ ┃ ┣ 📜discord-bot.js
@@ -117,7 +130,8 @@ npm start
  ┃ ┣ 📂features
  ┃ ┃ ┣ 📜currency-system.js
  ┃ ┃ ┣ 📜custom-reply-system.js
- ┃ ┃ ┗ 📜level-up-system.js
+ ┃ ┃ ┣ 📜level-up-system.js
+ ┃ ┃ ┗ 📜media-system.js
  ┃ ┗ 📂handlers
  ┃ ┃ ┣ 📜authorization.handler.js
  ┃ ┃ ┣ 📜command.handler.js
