@@ -30,15 +30,15 @@ module.exports = class DiscordBot extends Client {
    * Publish slash commands
    */
   async publishCommands() {
-    const rest = new REST({ version: "9" }).setToken(CONFIG.DISCORD.BOT_TOKEN);
-    const route = Routes.applicationGuildCommands(
-      CONFIG.DISCORD.APP_ID,
-      CONFIG.DISCORD.GUILD_ID,
-    );
+    // const rest = new REST({ version: "9" }).setToken(CONFIG.DISCORD.BOT_TOKEN);
+    // const route = Routes.applicationGuildCommands(
+    //   CONFIG.DISCORD.APP_ID,
+    //   CONFIG.DISCORD.GUILD_ID,
+    // );
 
-    const commandsData = this.commandHandler.commands.toJSON();
+    // const commandsData = this.commandHandler.commands.toJSON();
 
-    await rest.put(route, { body: commandsData });
+    // await rest.put(route, { body: commandsData });
   }
 
   /**
