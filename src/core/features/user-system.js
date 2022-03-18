@@ -5,8 +5,7 @@ const guildUserService = require("../database/guild-user/guild-user.service");
 
 /**
  * Show UserCard
- * @param {CommandInteraction} interaction 
- */
+ * @param {CommandInteraction} interaction */
 const showUsercard = async (interaction) => {
   const guildId = interaction.guildId;
   const userId = interaction.user.id;
