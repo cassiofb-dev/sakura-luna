@@ -14,7 +14,7 @@ command.addStringOption(option => {
 });
 
 /**
- * Ping implementation
+ * Art implementation
  * @param {CommandInteraction} interaction
  */
 const execute = async (interaction) => {

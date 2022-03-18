@@ -13,14 +13,14 @@ command.addSubcommand(subCommand => {
 
   subCommand.addStringOption(option => {
     option.setName("trigger");
-    option.setDescription("Message that will trigger the response")
+    option.setDescription("Message that will trigger the response");
     option.setRequired(true);
     return option;
   });
 
   subCommand.addStringOption(option => {
     option.setName("message");
-    option.setDescription("Message that will reply the trigger")
+    option.setDescription("Message that will reply the trigger");
     option.setRequired(true);
     return option;
   });
@@ -40,7 +40,7 @@ command.addSubcommand(subCommand => {
 
   subCommand.addStringOption(option => {
     option.setName("trigger");
-    option.setDescription("Trigger to remove")
+    option.setDescription("Trigger to remove");
     option.setRequired(true);
     return option;
   });
@@ -49,7 +49,7 @@ command.addSubcommand(subCommand => {
 });
 
 /**
- * Custom reply implementation
+ * CustomReply implementation
  * @param {CommandInteraction} interaction
  */
 const execute = async (interaction) => {

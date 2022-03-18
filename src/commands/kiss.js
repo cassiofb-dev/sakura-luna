@@ -14,7 +14,7 @@ command.addUserOption(option => {
 });
 
 /**
- * Ping implementation
+ * Kiss implementation
  * @param {CommandInteraction} interaction
  */
 const execute = async (interaction) => {

@@ -14,7 +14,7 @@ command.addStringOption(option => {
 });
 
 /**
- * Ping implementation
+ * Gif implementation
  * @param {CommandInteraction} interaction
  */
 const execute = async (interaction) => {

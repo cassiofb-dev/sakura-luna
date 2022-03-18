@@ -29,7 +29,7 @@ command.addSubcommand(subCommand => {
 });
 
 /**
- * Custom reply implementation
+ * UserArt implementation
  * @param {CommandInteraction} interaction
  */
  const execute = async (interaction) => {
