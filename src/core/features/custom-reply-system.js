@@ -1,4 +1,5 @@
-const { Message, CommandInteraction, MessageEmbed } = require("discord.js");
+const { Message, CommandInteraction } = require("discord.js");
+const { newEmbedMessage } = require("../classes/embed-message");
 const customReplyService = require("../database/custom-reply/custom-reply.service");
 
 /**
@@ -38,19 +39,19 @@ const manageCustomReply = async (interaction) => {
         content: "No custom replies found T_T",
       });
 
-      const messageEmbed = new MessageEmbed();
+      const embedMessage = await newEmbedMessage(guildId);
 
-      messageEmbed.setTitle("Custom Replies List");
+      embedMessage.setTitle("Custom Replies List");
 
       for (const customReplyIndex in customReplies) {
         const { trigger, message } = customReplies[customReplyIndex];
-        messageEmbed.addField(
+        embedMessage.addField(
           `Custom Reply #${(Number(customReplyIndex) + 1).toString().padStart(2, "0")}`,
           `trigger: ${trigger}\nmessage: ${message}`,
         );
       }
 
-      await interaction.reply({ embeds: [messageEmbed] });
+      await interaction.reply({ embeds: [embedMessage] });
     } break;
 
     case "remove": {

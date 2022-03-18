@@ -1,5 +1,6 @@
-const { CommandInteraction, MessageEmbed } = require("discord.js");
+const { CommandInteraction } = require("discord.js");
 const Command = require("../core/classes/command.js");
+const { newEmbedMessage } = require("../core/classes/embed-message.js");
 const mediaSystem = require("../core/features/media-system.js");
 
 const command = new Command();
@@ -23,8 +24,7 @@ const execute = async (interaction) => {
 
   if (!art) return interaction.reply(`No art found! T_T`);
 
-  const message = new MessageEmbed();
-  message.setColor("LUMINOUS_VIVID_PINK");
+  const message = await newEmbedMessage(interaction.guildId);
   message.setTitle(`Art name: ${art.name}`);
   message.setDescription(`This art was sent by <@${art.userId}>`);
   message.setImage(art.link);

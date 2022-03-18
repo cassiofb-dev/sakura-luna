@@ -1,5 +1,6 @@
-const { CommandInteraction, MessageEmbed } = require("discord.js");
+const { CommandInteraction } = require("discord.js");
 const Command = require("../core/classes/command.js");
+const { newEmbedMessage } = require("../core/classes/embed-message.js");
 const mediaSystem = require("../core/features/media-system.js");
 
 const command = new Command();
@@ -22,10 +23,9 @@ const execute = async (interaction) => {
   const kissinUserId = interaction.user.id;
   const kissedUserId = interaction.options.getUser("kissed").id;
 
-  const message = new MessageEmbed();
+  const message = await newEmbedMessage(interaction.guildId);
   message.setTitle("KISS UwU");
   message.setDescription(`<@${kissinUserId}> kissed <@${kissedUserId}>`);
-  message.setColor("LUMINOUS_VIVID_PINK");
   message.setImage(kissGifURL);
 
   await interaction.reply({
