@@ -2,7 +2,7 @@ const UserArt = require("./user-art");
 const userArtModel = require("./user-art.model");
 
 /**
- * Create a user Art if not exist
+ * Create a UserArt if not exist
  * @param {UserArt} userArt * @returns */
 const createIfNotExist = async (userArt) => {
   const foundUserArt = await userArtModel.findOne(userArt);
@@ -11,7 +11,7 @@ const createIfNotExist = async (userArt) => {
 }
 
 /**
- * Find one custom reply
+ * Find one UserArt
  * @param {UserArt} userArt
  * @returns {Promise<Array<UserArt>>}
  */

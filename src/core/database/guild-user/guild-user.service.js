@@ -27,7 +27,7 @@ const update = async (guildUser) => {
 }
 
 /**
- * Find one guild user
+ * Find one GuildUser
  * @param {GuildUser} guildUser
  * @returns {Promise<Array<GuildUser>>}
  */

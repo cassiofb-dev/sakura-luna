@@ -2,7 +2,7 @@ const CustomReply = require("./custom-repliy");
 const customReplyModel = require("./custom-reply.model");
 
 /**
- * Create custom reply
+ * Create CustomReply
  * @param {CustomReply} customReply
  * @returns {Promise<CustomReply>}
  */
@@ -20,7 +20,7 @@ const save = async (customReply) => {
 }
 
 /**
- * Find one custom reply
+ * Find one CustomReply
  * @param {CustomReply} customReply
  * @returns {Promise<Array<CustomReply>>}
  */
@@ -29,7 +29,7 @@ const find = (customReply) => {
 }
 
 /**
- * Update custom reply
+ * Update CustomReply
  * @param {CustomReply} customReply
  */
 const update = async (customReply) => {
@@ -39,7 +39,7 @@ const update = async (customReply) => {
 }
 
 /**
- * Remove custom reply
+ * Remove CustomReply
  * @param {CustomReply} customReply
  */
  const remove = async (customReply) => {
