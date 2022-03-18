@@ -34,6 +34,7 @@ Sakura Luna is discord bot for promiving interactions between people and promovi
     * ``define``
     * ``art``
     * ``user-art``
+    * ``guild-config``
 * Events Handler
   * All events in ``src/events`` folder are handled by default
   * Bult-in Events:
@@ -54,7 +55,8 @@ Sakura Luna is discord bot for promiving interactions between people and promovi
 * Third party apis
   * Urban dictionary for definitions
   * Tenor for searching gifs
-* Cross server Arts!
+* Cross server Arts
+* Guild Custom Config
 
 ## Using
 
@@ -108,6 +110,7 @@ npm start
  ┃ ┣ 📜custom-reply.js
  ┃ ┣ 📜define.js
  ┃ ┣ 📜gif.js
+ ┃ ┣ 📜guild-config.js
  ┃ ┣ 📜hug.js
  ┃ ┣ 📜kiss.js
  ┃ ┣ 📜pat.js
@@ -121,12 +124,17 @@ npm start
  ┃ ┣ 📂classes
  ┃ ┃ ┣ 📜command.js
  ┃ ┃ ┣ 📜discord-bot.js
+ ┃ ┃ ┣ 📜embed-message.js
  ┃ ┃ ┗ 📜event.js
  ┃ ┣ 📂database
  ┃ ┃ ┣ 📂custom-reply
  ┃ ┃ ┃ ┣ 📜custom-repliy.js
  ┃ ┃ ┃ ┣ 📜custom-reply.model.js
  ┃ ┃ ┃ ┗ 📜custom-reply.service.js
+ ┃ ┃ ┣ 📂guild-config
+ ┃ ┃ ┃ ┣ 📜guild-config.js
+ ┃ ┃ ┃ ┣ 📜guild-config.model.js
+ ┃ ┃ ┃ ┗ 📜guild-config.service.js
  ┃ ┃ ┣ 📂guild-user
  ┃ ┃ ┃ ┣ 📜guild-user.js
  ┃ ┃ ┃ ┣ 📜guild-user.model.js
@@ -139,6 +147,7 @@ npm start
  ┃ ┣ 📂features
  ┃ ┃ ┣ 📜currency-system.js
  ┃ ┃ ┣ 📜custom-reply-system.js
+ ┃ ┃ ┣ 📜guild-config-system.js
  ┃ ┃ ┣ 📜level-up-system.js
  ┃ ┃ ┣ 📜media-system.js
  ┃ ┃ ┗ 📜user-art-system.js
