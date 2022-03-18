@@ -1,5 +1,5 @@
 const { CommandInteraction } = require("discord.js");
-const CONFIG = require("../../config");
+const { DISCORD } = require("../../config");
 
 /**
  * Handle permissions
@@ -25,7 +25,7 @@ const hasRole = (interaction, roleName) => {
  * @param {String} roleName
  */
  const hasAdminRole = async (interaction) => {
-   const isAdmin = hasRole(interaction, CONFIG.DISCORD.ROLES.ADMIN);
+   const isAdmin = hasRole(interaction, DISCORD.ROLES.ADMIN);
 
    if (!isAdmin) await interaction.reply({
     content: "Only my master and friends can tell what I can say! Hmph!",

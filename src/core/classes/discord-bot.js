@@ -1,10 +1,10 @@
 const { REST } = require("@discordjs/rest");
 const { Routes } = require("discord-api-types/v9");
+const { DISCORD } = require("../../config");
 const { Client, ClientOptions, CommandInteraction } = require("discord.js");
 const startDataBaseConnection = require("../database/database");
 const CommandHandler = require("../handlers/command.handler");
 const EventHandler = require("../handlers/event.handler");
-const CONFIG = require("../../config");
 
 module.exports = class DiscordBot extends Client {
   /**
@@ -30,10 +30,10 @@ module.exports = class DiscordBot extends Client {
    * Publish slash commands
    */
   async publishCommands() {
-    const rest = new REST({ version: "9" }).setToken(CONFIG.DISCORD.BOT_TOKEN);
+    const rest = new REST({ version: "9" }).setToken(DISCORD.BOT_TOKEN);
     const route = Routes.applicationGuildCommands(
-      CONFIG.DISCORD.APP_ID,
-      CONFIG.DISCORD.GUILD_ID,
+      DISCORD.APP_ID,
+      DISCORD.GUILD_ID,
     );
 
     const commandsData = this.commandHandler.commands.toJSON();
@@ -51,10 +51,10 @@ module.exports = class DiscordBot extends Client {
       console.log("Commands published, starting database connection...");
       startDataBaseConnection().then(() => {
         console.log("Started database connection, starting bot...");
-        this.login(CONFIG.DISCORD.BOT_TOKEN).then(async () => {
+        this.login(DISCORD.BOT_TOKEN).then(async () => {
           console.timeEnd("Bot started in");
-          await this.user.setUsername(CONFIG.DISCORD.BOT_NAME);
-          await this.user.setActivity(CONFIG.DISCORD.BOT_ACTIVITY, { type: "WATCHING" });
+          await this.user.setUsername(DISCORD.BOT_NAME);
+          await this.user.setActivity(DISCORD.BOT_ACTIVITY, { type: "WATCHING" });
         });
       });
     });
