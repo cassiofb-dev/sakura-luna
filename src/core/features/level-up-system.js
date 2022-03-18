@@ -3,6 +3,13 @@ const guildConfigService = require("../database/guild-config/guild-config.servic
 const guildUserService = require("../database/guild-user/guild-user.service");
 
 /**
+ * GuildUser Experience to Level
+ * @param {Number} number 
+ * @returns {Number}
+ */
+const guildUserLevel = number => Math.floor(Math.log2(number));
+
+/**
  * Level Up System Manager
  * @param {Message} message
  */
@@ -11,8 +18,8 @@ const handleLevel = async (message) => {
   const userId = message.author.id;
   const guildUser = await guildUserService.createIfNotExist(guildId, userId);
 
-  const guildUserOldLevel = Math.floor(Math.log2(guildUser.experience));
-  const guildUserNewLevel = Math.floor(Math.log2(guildUser.experience + 1));
+  const guildUserOldLevel = guildUserLevel(guildUser.experience);
+  const guildUserNewLevel = guildUserLevel(guildUser.experience + 1);
 
   if (guildUserNewLevel > 0 && guildUserNewLevel > guildUserOldLevel) {
     const [guildConfig] = await guildConfigService.find({ guildId });
@@ -29,6 +36,6 @@ const handleLevel = async (message) => {
   await guildUserService.update(guildUser);
 }
 
-const levelUpSystem = { handleLevel };
+const levelUpSystem = { handleLevel, guildUserLevel };
 
 module.exports = levelUpSystem;

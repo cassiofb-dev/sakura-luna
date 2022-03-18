@@ -23,7 +23,7 @@ class EmbedMessage extends MessageEmbed {
 /**
  * Returns a EmbedMessage Instance with GuildConfig
  * @param {String} guildId 
- * @returns 
+ * @returns {Promise<EmbedMessage>}
  */
 const newEmbedMessage = async (guildId) => {
   const embedMessage = new EmbedMessage();
