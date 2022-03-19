@@ -3,7 +3,9 @@ const guildConfigService = require("../database/guild-config/guild-config.servic
 
 class EmbedMessage extends MessageEmbed {
   /**
-   *   * @param {MessageEmbedOptions} options   */
+   *
+   * @param {MessageEmbedOptions} options
+   */
   constructor(options) {
     super(options);
   }
@@ -19,7 +21,8 @@ class EmbedMessage extends MessageEmbed {
 
 /**
  * Returns a EmbedMessage Instance with GuildConfig
- * @param {String} guildId * @returns {Promise<EmbedMessage>}
+ * @param {String} guildId
+ * @returns {Promise<EmbedMessage>}
  */
 const newEmbedMessage = async (guildId) => {
   const embedMessage = new EmbedMessage();

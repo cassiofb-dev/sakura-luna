@@ -3,7 +3,9 @@ const userArtModel = require("./user-art.model");
 
 /**
  * Create a UserArt if not exist
- * @param {UserArt} userArt * @returns */
+ * @param {UserArt} userArt
+ * @returns {Promise<UserArt>}
+ */
 const createIfNotExist = async (userArt) => {
   const foundUserArt = await userArtModel.findOne(userArt);
   if (foundUserArt) return foundUserArt;

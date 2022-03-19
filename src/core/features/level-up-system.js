@@ -4,7 +4,8 @@ const guildUserService = require("../database/guild-user/guild-user.service");
 
 /**
  * GuildUser Experience to Level
- * @param {Number} number * @returns {Number}
+ * @param {Number} number
+ * @returns {Number}
  */
 const guildUserLevel = number => Math.floor(Math.log2(number));
 
