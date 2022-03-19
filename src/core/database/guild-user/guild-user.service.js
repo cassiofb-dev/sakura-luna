@@ -55,8 +55,8 @@ const update = async (guildUser) => {
 
 /**
  * Remove GuildUser
- * @param {String} guildId 
- * @param {String} userId 
+ * @param {String} guildId
+ * @param {String} userId
  */
 const remove = (guildId, userId) => {
   return guildUserModel.deleteOne({ guildId, userId });
