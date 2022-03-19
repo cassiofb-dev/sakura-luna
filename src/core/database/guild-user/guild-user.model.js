@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const guildUserSchema = new mongoose.Schema({
   guildId: String,
   userId: String,
+  avatarURL: String,
   currency: {
     type: Number,
     default: 10,

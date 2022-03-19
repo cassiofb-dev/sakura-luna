@@ -53,10 +53,20 @@ const update = async (guildUser) => {
   return guildUserModel.find({ guildId }).sort("-currency").limit(10);
 }
 
+/**
+ * Remove GuildUser
+ * @param {String} guildId 
+ * @param {String} userId 
+ */
+const remove = (guildId, userId) => {
+  return guildUserModel.deleteOne({ guildId, userId });
+}
+
 const guildUserService = {
   createIfNotExist,
   update,
   find,
+  remove,
   getLevelLeaderboard,
   getCurrencyLeaderboard,
 };

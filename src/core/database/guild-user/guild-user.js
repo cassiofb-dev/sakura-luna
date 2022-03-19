@@ -5,6 +5,7 @@ module.exports = class GuildUser {
    * guildId: String,
    * userId: String,
    * currency: Number,
+   * avatarURL: String,
    * experience: Number,
    * createdAt: Date,
    * }} options
@@ -13,6 +14,7 @@ module.exports = class GuildUser {
     this.guildId = options.guildId;
     this.userId = options.userId;
     this.currency = options.currency;
+    this.avatarURL = options.avatarURL;
     this.experience = options.experience;
     this.createdAt = options.createdAt;
   }
