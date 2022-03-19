@@ -45,19 +45,23 @@ const showLevelLeaderboard = async (interaction) => {
   const guildId = interaction.guildId;
   const levelLeaderBoard = await guildUserService.getLevelLeaderboard(guildId);
 
-  const messages = await Promise.all(levelLeaderBoard.map(async (guildUser, index) => {
-    const message = await newEmbedMessage(guildId);
-    message.setTitle(`LEVEL RANK ${(index + 1).toString().padStart(2, "0")}`);
-    message.setThumbnail(guildUser.avatarURL || "https://cdn.discordapp.com/avatars/947296544003092480/6c1d3eff3fcb00c46fe8e9b1c81f9e92.webp");
-    message.setDescription(
-      `User: <@${guildUser.userId}>
-      Experience: ${guildUser.experience}
-      #########################`
-    );
-    return message;
-  }));
+  const firstUser = levelLeaderBoard[0];
 
-  await interaction.reply({ embeds: messages });
+  const message = await newEmbedMessage(guildId);
+  message.setTitle(`Level Leaderboard`);
+  message.setThumbnail(firstUser.avatarURL || interaction.client.user.avatarURL());
+  message.setDescription(`
+    Congrats on being the first <@${firstUser.userId}>!
+  `);
+
+  levelLeaderBoard.map((guildUser, index) => {
+    message.addField(
+      `RANK ${(index + 1).toString().padStart(2, "0")}`,
+      `User: <@${guildUser.userId}>\nExperience: ${guildUser.experience}`,
+    );
+  });
+
+  await interaction.reply({ embeds: [message] });
 }
 
 /**
@@ -68,19 +72,23 @@ const showCurrencyLeaderboard = async (interaction) => {
   const guildId = interaction.guildId;
   const currencyLeaderboard = await guildUserService.getCurrencyLeaderboard(guildId);
 
-  const messages = await Promise.all(currencyLeaderboard.map(async (guildUser, index) => {
-    const message = await newEmbedMessage(guildId);
-    message.setTitle(`CURRENCY RANK ${(index + 1).toString().padStart(2, "0")}`);
-    message.setThumbnail(guildUser.avatarURL || "https://cdn.discordapp.com/avatars/947296544003092480/6c1d3eff3fcb00c46fe8e9b1c81f9e92.webp");
-    message.setDescription(
-      `User: <@${guildUser.userId}>
-      Sakura Petals: ${guildUser.currency}
-      #########################`
-    );
-    return message;
-  }));
+  const firstUser = currencyLeaderboard[0];
 
-  await interaction.reply({ embeds: messages });
+  const message = await newEmbedMessage(guildId);
+  message.setTitle(`Currency Leaderboard`);
+  message.setThumbnail(firstUser.avatarURL || interaction.client.user.avatarURL());
+  message.setDescription(`
+    Congrats on being the first <@${firstUser.userId}>!
+  `);
+
+  currencyLeaderboard.map((guildUser, index) => {
+    message.addField(
+      `RANK ${(index + 1).toString().padStart(2, "0")}`,
+      `User: <@${guildUser.userId}>\nSakura Petals: ${guildUser.currency}`,
+    );
+  });
+
+  await interaction.reply({ embeds: [message] });
 }
 
 /**

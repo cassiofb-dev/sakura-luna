@@ -4,7 +4,7 @@ const { showLeaderboard } = require("../core/features/user-system.js");
 
 const command = new Command();
 command.setName("leaderboard");
-command.setDescription("See the users rank by level!");
+command.setDescription("See the best people!");
 
 command.addStringOption(option => {
   option.setName("type");

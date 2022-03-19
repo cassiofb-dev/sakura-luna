@@ -1,4 +1,5 @@
 const { CommandInteraction } = require("discord.js");
+const { newEmbedMessage } = require("../classes/embed-message");
 const guildUserService = require("../database/guild-user/guild-user.service");
 
 /**
@@ -46,11 +47,33 @@ const showBalance = async (interaction) => {
   const userId = interaction.user.id;
   const guildUser = await guildUserService.createIfNotExist(guildId, userId);
   await interaction.reply({
-    content: `Your balance is ${guildUser.currency}`,
+    content: `Your balance is ${guildUser.currency} Sakura Petals`,
     ephemeral: true,
   });
 }
 
-const currencySystem = { showBalance, transfer };
+/**
+ * Execute a giveaway!
+ * @param {CommandInteraction} interaction
+ */
+const giveaway = async (interaction) => {
+  const guildId = interaction.guildId;
+  const amount = interaction.options.getNumber("amount");
+  const guildUsers = await guildUserService.find({ guildId });
+  const randomGuildUser = guildUsers[Math.floor(Math.random() * guildUsers.length)];
+
+  const message = await newEmbedMessage(guildId);
+  message.setTitle(`Giveaway of ${amount} Sakura Petals`);
+  message.setThumbnail(randomGuildUser.avatarURL || interaction.client.user.avatarURL());
+  message.setDescription(`
+    Congratulations <@${randomGuildUser.userId}> you won the giveaway!
+  `);
+
+  randomGuildUser.currency += amount;
+  await guildUserService.update(randomGuildUser);
+  await interaction.reply({ embeds: [message] });
+}
+
+const currencySystem = { showBalance, transfer, giveaway };
 
 module.exports = currencySystem;
