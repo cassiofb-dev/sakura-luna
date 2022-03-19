@@ -1,0 +1,34 @@
+const { Interaction } = require("discord.js");
+const Event = require("../core/classes/event");
+const guildConfigService = require("../core/database/guild-config/guild-config.service");
+
+const event = new Event({
+  name: "messageCreate",
+  once: false,
+});
+
+/**
+ * guildMemberAdd implementation
+ * @param {Interaction} interaction
+ */
+const execute = async (interaction) => {
+  const userId = interaction.user.id;
+  const guildId = interaction.guildId;
+  const [guildConfig] = await guildConfigService.find({ guildId });
+
+  if (!guildConfig.welcomeChannelName) return;
+  
+  const channel = await interaction.guild.channels.fetch(guildConfig.welcomeChannelName);
+
+  if(!channel) return;
+
+  const message = await newEmbedMessage(guildId);
+  message.setTitle("Welcome!");
+  message.setDescription(`<@${userId}> arrived!\n${guildConfig.welcomeMessage}`);
+
+  await channel.send({ embeds: [message] });
+}
+
+event.execute = execute;
+
+module.exports = event;
