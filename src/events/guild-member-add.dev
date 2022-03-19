@@ -17,7 +17,7 @@ const execute = async (interaction) => {
   const [guildConfig] = await guildConfigService.find({ guildId });
 
   if (!guildConfig.welcomeChannelName) return;
-  
+
   const channel = await interaction.guild.channels.fetch(guildConfig.welcomeChannelName);
 
   if(!channel) return;

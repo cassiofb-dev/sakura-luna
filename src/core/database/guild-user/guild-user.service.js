@@ -35,6 +35,30 @@ const update = async (guildUser) => {
   return guildUserModel.find(guildUser);
 }
 
-const guildUserService = { createIfNotExist, update, find };
+/**
+ * Get ExperienceLeaderboard
+ * @param {String} guildId
+ * @returns {Promise<Array<GuildUser>>}
+ */
+ const getLevelLeaderboard = (guildId) => {
+  return guildUserModel.find({ guildId }).sort("-experience").limit(10);
+}
+
+/**
+ * Get CurrencyLeaderboard
+ * @param {String} guildId
+ * @returns {Promise<Array<GuildUser>>}
+ */
+ const getCurrencyLeaderboard = (guildId) => {
+  return guildUserModel.find({ guildId }).sort("-currency").limit(10);
+}
+
+const guildUserService = {
+  createIfNotExist,
+  update,
+  find,
+  getLevelLeaderboard,
+  getCurrencyLeaderboard,
+};
 
 module.exports = guildUserService;
