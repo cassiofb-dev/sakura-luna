@@ -33,6 +33,7 @@ const handleLevel = async (message) => {
   }
 
   guildUser.experience++;
+  guildUser.avatarURL = message.author.avatarURL();
   await guildUserService.update(guildUser);
 }
 
