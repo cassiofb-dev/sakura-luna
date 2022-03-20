@@ -38,6 +38,7 @@ Sakura Luna is discord bot for promiving interactions between people and promovi
     * ``usercard``
     * ``leaderboard``
     * ``giveaway``
+    * ``sync``
 * Events Handler
   * All events in ``src/events`` folder are handled by default
   * Bult-in Events:
@@ -120,6 +121,7 @@ npm start
  ┃ ┣ 📜leaderboard.js
  ┃ ┣ 📜pat.js
  ┃ ┣ 📜ping.js
+ ┃ ┣ 📜sync.js
  ┃ ┣ 📜transfer.js
  ┃ ┣ 📜user-art.js
  ┃ ┗ 📜usercard.js

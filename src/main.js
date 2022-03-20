@@ -3,6 +3,7 @@ const { Intents } = require("discord.js");
 
 const discordBot = new DiscordBot({ intents: [
   Intents.FLAGS.GUILDS,
+  Intents.FLAGS.GUILD_MEMBERS,
   Intents.FLAGS.GUILD_MESSAGES,
 ]});
 

@@ -3,7 +3,7 @@ const Event = require("../core/classes/event");
 const guildConfigService = require("../core/database/guild-config/guild-config.service");
 
 const event = new Event({
-  name: "messageCreate",
+  name: "guildMemberAdd",
   once: false,
 });
 
